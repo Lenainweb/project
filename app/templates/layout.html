@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
+        <meta charset="utf-8"/>
+        <meta content="initial-scale=1, width=device-width" name="viewport"/>
+
+        <!-- documentation at http://getbootstrap.com/, alternative themes at https://www.bootstrapcdn.com/bootswatch/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css"
+            rel="stylesheet" integrity="sha384-G3G7OsJCbOk1USkOY4RfeX1z27YaWrZ1YuaQ5tbuawed9IoreRDpWpTkZLXQfPm3"
+            crossorigin="anonymous">
+
+        <!-- http://jquery.com/ -->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+        <!-- http://stewartjpark.com/Flask-JSGlue/ -->
+        {{ JSGlue.include() }}
+
+        <!--https://icons8.com/iconizer/ru/search/Free-for-commercial-use/0-128/1/flower-->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/layout/favicon.ico') }}">
+
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+
+        {% if title %}
+        <title>{{title}}</title>
+        {% else %}
+        <title>)Sahola</title>
+        {% endif %}
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/layout/sahola-logo-mob.png') }}" alt="Sahola"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="nav navbar-nav color-nav">
+                                <li><a href="{{ url_for('cart') }}"><img src="{{ url_for('static', filename='img/layout/shopping-bag.png') }}" alt="CAPT"></a> {% if g.user.is_authenticated %}
+                                    {{ g.count }} | {{ g.costs|usd }}{% else %} 0 | 0.00$ {% endif %}</li>
+                                <li><a href="{{ url_for('shop') }}">SHOP</a></li>
+                                <li><a href="{{ url_for('about_us') }}">ABOUT SAHOLA</a></li>
+                                <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
+                            </ul>
+                        {% if g.user.is_authenticated %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{ url_for('my_account') }}">My account: {{g.user.email.split('@')[0]}}</a></li>
+                                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                            </ul>
+                        {% else %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{ url_for('login') }}">Log In | Register</a></li>
+                            </ul>
+                        {% endif %}
+                        {% if g.user.role == 1 %}
+                            <ul class="nav navbar-nav color-nav">
+                                <li><a href="{{ url_for('admin') }}">ADMIN </a></li>
+                            </ul>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+
+            {% if get_flashed_messages() %}
+                <header>
+                    <div class="alert" role="alert">
+                        {{ get_flashed_messages() | join(" ") }}
+                    </div>
+                </header>
+            {% endif %}
+
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <div class="container-fluid">
+
+        <div class="container-fluid ">
+            <img src="{{ url_for('static', filename='img/contact/map.JPG') }}" width="100%"  alt="Map">
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+
+                <h3>OUR ADDRESS</h3>
+                <hr>
+                <h4>310 Springfield Ave,<br>
+                    Summit, NJ, 07901<br>
+                    1-855-439-5250</h4>
+                <hr>
+                <h3>HOURS OF OPERATION</h3>
+                <hr>
+                <h4>Mon-Fri: 9am-6pm<br>
+                    Sat: 9am-5pm</h4>
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+
+                <h3>OUR ADDRESS</h3>
+                <hr>
+                <h4>356 Broadway,<br>
+                    New York, NY, 10013<br>
+                    1-855-439-5250</h4>
+                <hr>
+                <h3>HOURS OF OPERATION</h3>
+                <hr>
+                <h4>Mon-Fri: 9am-6pm<br>
+                    Sat: 9am-5pm</h4>
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 logo">
+
+                <!--<h1>CONTACT US</h1>-->
+
+                <!--<form method="post" action="/contact" class="form">-->
+                <!-- forn_contact.hidden_tag() -->
+                <!-- forn_contact.name <br>-->
+                <!-- forn_contact.email <br>-->
+                <!-- forn_contact.subject <br>-->
+                <!-- forn_contact.message <br>-->
+                <!-- forn_contact.submit -->
+                <!--</form>-->
+                <img src="{{ url_for('static', filename='img/layout/Sahola_logo1.png') }}"   alt="sahola logo">
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

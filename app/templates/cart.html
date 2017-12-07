@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    {% for other in g.car %}
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 lin imgshop">
+            <a href="{{ url_for('confirm', prod = other.id) }}"><img src="{{ url_for('static', filename='upload/' + other.img) }}" alt="products"></a>
+            <a href="{{ url_for('confirm', prod = other.id) }}"><h2>{{ other.name_of_product.upper() }}</h2>{{ other.cost | usd }}</a>
+     </div>
+    {% endfor %}
+
+
+
+
+
+{% endblock %}
+
+

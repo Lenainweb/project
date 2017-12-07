@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+
+
+{% block main %}
+
+        <h1> Log In</h1>
+        <form method="post" action="/login" class="form">
+        {{ form_login.hidden_tag() }}
+        {{ form_login.email.label }}<br>
+        {{ form_login.email }}<br>
+        {{ form_login.password.label }}<br>
+        {{ form_login.password }}<br>
+        {{ form_login.remember_me }}Remember me<br>
+        {{ form_login.submit }}
+        </form>
+
+        <h1> Register</h1>
+        <form method="post" action="/login" class="form">
+        {{ form_register.hidden_tag() }}
+        {{ form_register.email.label }}<br>
+        {{ form_register.email }}<br>
+        {{ form_register.password.label }}<br>
+        {{ form_register.password }}<br>
+        {{ form_register.password_again.label }}<br>
+        {{ form_register.password_again }}<br>
+        {{ form_register.submit }}
+        </form>
+
+
+{% endblock %}

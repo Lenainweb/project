@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <h1>Delete product</h1>
+        <form method="post" enctype=multipart/form-data action="/admin/del-product" class="form">
+            {{ form_del.hidden_tag() }}
+            {{ form_del.name_of_product.label }}<br>
+            {{ form_del.name_of_product }}<br>
+            {{ form_del.size.label }}<br>
+            {{ form_del.size }}<br>
+            {{ form_del.submit }}
+        </form>
+
+
+{% endblock %}
+
+

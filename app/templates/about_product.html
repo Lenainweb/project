@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+    <div class="container-fluid">
+
+        <div class="container-fluid hea">
+            <img src="{{ url_for('static', filename='img/shop/header-shop2.jpg') }}" width="100%" hidth="50%"  alt="shop">
+        </div>
+
+        <h1>{{ prod.name_of_product }}</h1>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 lin imgshop">
+            <img src="{{ url_for('static', filename='upload/' + prod.img) }}"  alt="product">
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 lin ">
+
+            <h2>{{ prod.cost | usd }}</h2>
+            <br>
+            <h3>{{ prod.product_description }}</h3>
+            <br>
+
+            {% if g.user.is_authenticated %}
+
+            <form method="post"  action="/about_product/{{prod.id}}" class="form">
+                {{ form_to_cart.hidden_tag() }}
+                {{ form_to_cart.submit }}
+            </form>
+             {% else %}
+             <a href="{{ url_for('about_us') }}">Please login or register</a>
+             {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+

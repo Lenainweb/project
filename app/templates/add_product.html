@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <h1>Add product</h1>
+        <form method="post" enctype=multipart/form-data action="/admin/add-product" class="form">
+            {{ form_add.hidden_tag() }}
+            {{ form_add.name_of_product.label }}<br>
+            {{ form_add.name_of_product }}<br>
+            {{ form_add.size.label }}<br>
+            {{ form_add.size }}<br>
+            {{ form_add.cost.label }}<br>
+            {{ form_add.cost }}<br>
+            {{ form_add.product_description.label }}<br>
+            {{ form_add.product_description }}<br>
+
+            {{ form_add.file.label }}<br>
+            <div class="sd" align="right">
+            {{ form_add.file }}<br>
+            </div>
+            {{ form_add.submit }}
+        </form>
+
+
+{% endblock %}
+
+

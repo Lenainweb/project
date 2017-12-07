@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+    <div class="container-fluid">
+
+        <div class="container-fluid ">
+            <img src="{{ url_for('static', filename='img/shop/header-shop.jpg') }}" width="100%"  alt="shop">
+        </div>
+    </div>
+    <h1>SHOP</h1>
+
+    {% for product in products %}
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 lin imgshop">
+        <a href="{{ url_for('about_product', prod = product.id) }}"><img src="{{ url_for('static', filename='upload/' + product.img) }}" alt="products"></a>
+        <a href="{{ url_for('about_product', prod = product.id) }}"><h2>{{ product.name_of_product }}</h2>{{ product.cost | usd }}</a>
+    </div>
+
+    {% endfor %}
+
+
+{% endblock %}

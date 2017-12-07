@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <h1>HELLO</h1>
+        <ul>
+            <li><a href="{{ url_for('add_product') }}">Add new Product</a></li>
+            <li><a href="{{ url_for('del_product') }}">Delete Product</a></li>
+            <li><a href="{{ url_for('add_admin') }}">Add new Admin</a></li>
+        </ul>
+
+{% endblock %}
+
+

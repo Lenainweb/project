@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <h1>My Account</h1>
+    <h2>My Account<hr></h2>
+    <p>Hello <span>{{ user }}</span>
+        (not {{ user }} <a href="{{ url_for('logout') }}">Sign out</a>).
+        From your account dashboard you can view your recent orders,
+        manage your shipping and billing addresses and
+        <a href="{{ url_for('edit_account') }}">
+            edit your password and account details</a>.</p>
+    <h2>My Addresses<hr></h2>
+    <p> The following addresses will be used on the checkout page by default.</p>
+    <h2>Billing Address<hr></h2>
+    <p><a href="{{ url_for('billing_address') }}">Edit</a></p>
+    <p>You have not set up this type of address yet.</p>
+    <h2>Shipping Address<hr></h2>
+    <p><a href="{{ url_for('shipping_address') }}">Edit</a></p>
+    <p>You have not set up this type of address yet.</p>
+
+{% endblock %}
+

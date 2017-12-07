@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <h1>Add Admin</h1>
+        <form method="post" enctype=multipart/form-data action="/admin/add-admin" class="form">
+            {{ form_add_admin.hidden_tag() }}
+            {{ form_add_admin.email.label }}<br>
+            {{ form_add_admin.email }}<br>
+            {{ form_add_admin.submit }}
+        </form>
+
+
+{% endblock %}
+
+

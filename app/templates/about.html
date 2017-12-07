@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <div class="container-fluid">
+
+        <div class="container-fluid ">
+            <img src="{{ url_for('static', filename='img/about/about.JPG') }}" width="100%"  alt="About us">
+        </div>
+        <hr>
+        <div>
+            <img src="{{ url_for('static', filename='img/about/olga-sahraoui.jpg') }}" align="left"  alt="Olga Sahraoui">
+            <p>
+                SAHOLA Floral Art & Event Design is an upscale floral design studio
+                founded by  Olga Sahraoui, who brought new elements of European Design
+                into New York style.  SAHOLA – a derivative of her last and first name –
+                driven by a passion for flowers and fearless quest for innovation.
+
+                Olga’s creative flair and stylistic approach allows her to incorporate flowers
+                into special events and weddings. Her impeccable taste and ability to manifest
+                the visually stunning bouquets as well as the discretion with which she treats
+                her clients has created a unique and lasting trust which ranks SAHOLA Floral Art
+                & Event Design at the top of one of the best flower companies.
+
+                Challenging new ideas, unusual materials and personalization is important to Olga.
+                With the special inclination towards floral designs, she naturally developed an
+                eye for details and artistic flower combinations. Olga doesn’t believe in ordinary,
+                every day boring bouquets and centerpieces, she believes in unique floral couture.
+
+                Olga has pursued her passion across the world, studying it to the highest international
+                levels with the most influential Dutch designers.
+            </p>
+            <qoute>
+                "Where flowers get personal"
+            </qoute>
+            <img src="{{ url_for('static', filename='img/about/signature.png') }}" align="center"  alt="signature">
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

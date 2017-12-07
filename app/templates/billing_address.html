@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <h1>Billing Address</h1>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+        <h2>Information provided</h2>
+        <br>
+        <ul>
+        {% if user_billing_address == None %}
+
+
+
+        <li>first name not added </li>
+        <br>
+        <li>last_name not added </li>
+        <br>
+        <li>email:   <bold>{{ current_user.email }}</bold> </li>
+        <br>
+        <li>phone not added </li>
+        <br>
+        <li>street not added </li>
+        <br>
+        <li>apartment not added </li>
+        <br>
+        <li>town not added </li>
+        <br>
+        <li>zip not added </li>
+        <br>
+
+        {% else %}
+        <li>first name: {{ user_billing_address.first_name }}</li>
+        <br>
+
+        <li>last_name: {{ user_billing_address.last_name }}</li>
+        <br>
+        <li>email: {{ user_billing_address.email }}</li>
+        <br>
+        <li>phone: {{ user_billing_address.phone }}</li>
+        <br>
+        <li>street: {{ user_billing_address.street }}</li>
+        <br>
+        <li>apartment: {{ user_billing_address.apartment }}</li>
+        <br>
+        <li>town: {{ user_billing_address.town }}</li>
+        <br>
+        <li>state: {{ user_billing_address.state }}</li>
+        <br>
+        <li>zip: {{ user_billing_address.zip }}</li>
+        <br>
+        {% endif %}
+        </ul>
+
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <form method="post" action="/my-account/edit-Billing-address" class="form">
+        {{ form_billing_address.hidden_tag() }}
+        {{ form_billing_address.first_name.label }}<br>
+        {{ form_billing_address.first_name }}<br>
+        {{ form_billing_address.last_name.label }}<br>
+        {{ form_billing_address.last_name }}<br>
+        {{ form_billing_address.email.label }}<br>
+        {{ form_billing_address.email }}<br>
+        {{ form_billing_address.phone.label }}<br>
+        {{ form_billing_address.phone }}<br>
+        {{ form_billing_address.street.label }}<br>
+        {{ form_billing_address.street }}<br>
+        {{ form_billing_address.apartment.label }}<br>
+        {{ form_billing_address.apartment }}<br>
+        {{ form_billing_address.town.label }}<br>
+        {{ form_billing_address.town }}<br>
+        {{ form_billing_address.state.label }}<br>
+        {{ form_billing_address.state }}<br>
+        {{ form_billing_address.zips.label }}<br>
+        {{ form_billing_address.zips }}<br>
+        {{ form_billing_address.submit }}
+    </form>
+    </div>
+
+{% endblock %}
+

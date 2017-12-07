@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+
+
+{% block main %}
+
+
+    <h1>Edit Account Details</h1>
+
+    <form method="post" action="/my-account/edit-account/" class="form">
+        {{ form_edit.hidden_tag() }}
+        {{ form_edit.first_name.label }}<br>
+        {{ form_edit.first_name }}<br>
+        {{ form_edit.last_name.label }}<br>
+        {{ form_edit.last_name }}<br>
+        {{ form_edit.email.label }}<br>
+        {{ form_edit.email }}<br>
+        {{ form_edit.submit }}
+    </form>
+
+    <h2>Password Change</h2>
+
+    <form method="post" action="/my-account/edit-account/" class="form">
+        {{ form_chang_pass.hidden_tag() }}
+        {{ form_chang_pass.old_password.label }}<br>
+        {{ form_chang_pass.old_password }}<br>
+        {{ form_chang_pass.new_password.label }}<br>
+        {{ form_chang_pass.new_password }}<br>
+        {{ form_chang_pass.new_password2.label }}<br>
+        {{ form_chang_pass.new_password2 }}<br>
+        {{ form_chang_pass.submit }}
+    </form>
+
+
+
+{% endblock %}
